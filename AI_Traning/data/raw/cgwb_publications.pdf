@@ -1,0 +1,775 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>CGWB - Publications Repository</title>
+      <link href="https://cgwb.gov.in/cgwbpnm/public/front/css/bootstrap.min.css" rel="stylesheet" />
+      <link href="https://cgwb.gov.in/cgwbpnm/public/front/css/font-awesome.min.css" rel="stylesheet" />
+      <link href="https://cgwb.gov.in/cgwbpnm/public/front/css/material.css" rel="stylesheet" />
+      <link href="https://cgwb.gov.in/cgwbpnm/public/front/css/owl.carousel.min.css" rel="stylesheet" />
+      <link href="https://cgwb.gov.in/cgwbpnm/public/front/css/owl.theme.default.css" rel="stylesheet">
+      <link href="https://cgwb.gov.in/cgwbpnm/public/front/css/animate.css" rel="stylesheet">
+      <link href="https://cgwb.gov.in/cgwbpnm/public/front/css/style.css" rel="stylesheet" />
+	  <meta name="csrf-token" content="XZsO144yJrd6q1O46DPXUoeG0wxtsz86DmB4XnSV">
+	   
+
+	 
+	  	<style>
+		#overlay-loader {
+		    position: fixed;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    height: 100%;
+		    background: rgba(255, 255, 255, 0.75);
+		    z-index: 9999;
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		}
+
+		.overlay-spinner {
+		    border: 6px solid #f3f3f3;
+		    border-top: 6px solid #3498db;
+		    border-radius: 50%;
+		    width: 50px;
+		    height: 50px;
+		    animation: spin 1s linear infinite;
+		}
+		@keyframes spin {
+		    0% { transform: rotate(0deg); }
+		    100% { transform: rotate(360deg); }
+		}
+		</style>
+	  
+   </head>
+   <body class="active-preloader-ovh">
+      <div class="preloader">
+         <div class="spinner"></div>
+      </div>
+      	<div id="overlay-loader" style="display: none;">
+		  <div class="overlay-spinner"></div>
+	    </div>
+      <div class="logo-sec-wraper">
+         <div class="container">
+            <div class="d-flex justify-content-between flex-wrap align-items-center">
+               <div class="col-12 col-sm-12 col-md-12 col-lg-6 logo-sec">
+                  <a href="https://cgwb.gov.in/cgwbpnm" class="logo-align">
+                     <img src="https://cgwb.gov.in/cgwbpnm/public/front/images/logo.png" alt="emblem">
+                     <div class="brand-text">
+                        <h4>Central Ground Water Board (CGWB)<span>Ministry of Jal Shakti, Department of Water Resources, River </span></h4>
+                        <p>Development and Ganga Rejuvenation<span>Government of India</span></p>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-12 col-sm-12 col-md-12 col-lg-6 menu-sec">
+                  <div class="logo-sec-wraper">
+                     <div class="d-flex justify-content-end">
+                        <nav class="navbar navbar-expand-lg p-0">
+                           <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="false"> <i class="fas fa-bars"></i> </button>
+                           <div class="navbar-collapse collapse" id="navb">
+                              <ul class="navbar-nav ">
+                                 <li class="nav-item "> <a class="nav-link " href="https://cgwb.gov.in/cgwbpnm">Home</a> </li>
+                                 <!-- <li class="nav-item "> <a class="nav-link" href="https://cgwb.gov.in/cgwbpnm/media">Media</a> </li> -->
+                                 <li class="nav-item active"> <a class="nav-link" href="https://cgwb.gov.in/cgwbpnm/publications">Publications</a> </li>
+                                 
+								 
+								 
+								 									 <li class="nav-item "> <a class="nav-link" href="https://cgwb.gov.in/cgwbpnm/admin">Login</a> </li>
+								                               </ul>
+                           </div>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+  	    
+	        
+	  
+    <div class="bg-overlay bg-overlay-pattern"></div>
+    <!-- end navbar -->
+
+    <!-- start hero section -->
+    <section class="section nft-hero" id="hero" >
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8 col-sm-10">                     
+                       <!-- <h3 class="display-4 fw-medium mb-4 lh-base text-white" style="font-size: 1.5rem!important;">CGWB - Publications and Media Warehouse</h3> -->
+                        <p class="lead text-white-50 lh-base m-4 p-2">CGWB - Publications Warehouse</p>
+                     
+                </div><!--end col-->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </section><!-- end hero section -->
+	<div class="banner-section">
+         <div class="container">
+            <div class="row align-items-start mt-5">
+               <div class="col-5">
+                  <div class="banner-heading">
+                     <h1><span>CGWB</span> Publications Repository </h1>
+                  </div>
+               </div>
+			   
+			   
+               <div class="col-12 col-sm-12 col-md-7">
+                  <div class="tabination wow  fadeInUp animated" data-wow-duration="1s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInUp;">
+                      
+                     <div class="tab-content">
+                         
+                        <div class="tab-pane show  active " id="profile" role="tabpanel" aria-labelledby="profile-tab">
+						<form action="https://cgwb.gov.in/cgwbpnm/publications" method="get">
+							<input type="hidden" name="type" value="2">
+                           <div class="row">
+                              <div class="col-4">
+                                 <select name="cat_id" id="cat_id" class="form-control">
+                                    <option value="">Choose Category</option>
+																					<option  value="23">Annual Reports</option>
+																					<option  value="16">Aquifer Atlas and Maps</option>
+																					<option  value="7">Aquifer Mapping</option>
+																					<option  value="2">Artificial Recharge</option>
+																					<option  value="8">Azadi Ka Amrit Mahotsav</option>
+																					<option  value="12">Bhu-jal News</option>
+																					<option  value="31">Bhujal Chetna</option>
+																					<option  value="11">Bhujal Samvad</option>
+																					<option  value="14">CGWA</option>
+																					<option  value="21">Ground Water Exploration</option>
+																					<option  value="6">Ground Water Level</option>
+																					<option  value="1">Ground Water Quality</option>
+																					<option  value="9">Groundwater Modeling</option>
+																					<option  value="22">LiFE Mission</option>
+																					<option  value="18">News Paper Cuttings</option>
+																					<option  value="27">Others</option>
+																					<option  value="32">Parliament</option>
+																					<option  value="13">Pilot Aquifer Mapping</option>
+																					<option  value="29">Policy, Guidelines, SoPs etc.</option>
+																					<option  value="3">Resource Assessment</option>
+																					<option  value="30">RnD-INCGW</option>
+																					<option  value="24">Special studies</option>
+																					<option  value="10">Swachhata Abhiyan</option>
+																					<option  value="28">Training  Outreach Activities</option>
+																					<option  value="25">Workshop/Conference/Seminar</option>
+																					<option  value="4">Year Book</option>
+										                                 </select>
+                              </div>
+                              <div class="col-4">
+                                 <select name="state_id" class="form-select form-control" id="stateSelect" onchange="showSelectedStateOptions(this,'districtSelect')">
+                                    <option value="">Choose State</option>
+									<option value="All">All</option>
+                                    										<option   value="35">Andaman And Nicobar Islands</option>
+																			<option   value="28">Andhra Pradesh</option>
+																			<option   value="12">Arunachal Pradesh</option>
+																			<option   value="18">Assam</option>
+																			<option   value="10">Bihar</option>
+																			<option   value="4">Chandigarh</option>
+																			<option   value="22">Chhattisgarh</option>
+																			<option   value="26">Dadra &amp; Nagar Haveli</option>
+																			<option   value="25">Daman &amp; Diu</option>
+																			<option   value="7">Delhi</option>
+																			<option   value="30">Goa</option>
+																			<option   value="24">Gujarat</option>
+																			<option   value="6">Haryana</option>
+																			<option   value="2">Himachal Pradesh</option>
+																			<option   value="1">Jammu And Kashmir</option>
+																			<option   value="20">Jharkhand</option>
+																			<option   value="29">Karnataka</option>
+																			<option   value="32">Kerala</option>
+																			<option   value="37">Ladakh</option>
+																			<option   value="31">Lakshadweep</option>
+																			<option   value="23">Madhya Pradesh</option>
+																			<option   value="27">Maharashtra</option>
+																			<option   value="14">Manipur</option>
+																			<option   value="17">Meghalaya</option>
+																			<option   value="15">Mizoram</option>
+																			<option   value="13">Nagaland</option>
+																			<option   value="21">Odisha</option>
+																			<option   value="34">Puducherry</option>
+																			<option   value="3">Punjab</option>
+																			<option   value="8">Rajasthan</option>
+																			<option   value="11">Sikkim</option>
+																			<option   value="33">Tamil Nadu</option>
+																			<option   value="36">Telangana</option>
+																			<option   value="16">Tripura</option>
+																			<option   value="9">Uttar Pradesh</option>
+																			<option   value="5">Uttarakhand</option>
+																			<option   value="19">West Bengal</option>
+									                                 </select>
+                              </div>
+                              <div class="col-4">
+                                 <select name="district_id" class="form-select form-control" id="districtSelect">
+                                    <option value="">Choose District</option>
+                                     
+                                 </select>
+                              </div>
+                              <div class="col-4 mt-3">
+                                 <input name="year_of_issue" value="" type="text" class="form-control form-control" placeholder="Year Of Issue">
+                              </div>
+                              <div class="col-4 mt-3">
+                                 <input name="name_of_author" value="" type="text"  class="form-control form-control" placeholder="Name of Author">
+                              </div>
+                              <div class="col-4 mt-3">
+                                 <input name="keywords" value="" type="text" class="form-control form-control" placeholder="Keywords">
+                              </div>
+                              <div class="col-12 text-right mt-3">
+								<button type="submit" name="search" value="search"  class="btn search-btn hvr-sweep-to-right">Search</button>
+                                  
+                              </div>
+                           </div>
+						   </form>
+                        </div>
+                     </div>
+                  </div>
+                 
+               </div>
+            </div>
+         </div>
+         </div>
+    <section class="section" style="padding: 10px!important; padding-top: 20px !important;">
+	<div class="search-sec">
+            <div class="container">
+               <div class="row  pt-4 pb-5">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                     <div class="top-head-search">
+                        <h3>Total Publications : 1889</h3>
+                     </div>
+                  </div>
+				  					  
+						  <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+							 <div class="item">
+								<div class="card" style="width: 18rem;">
+									<img class="card-img-top" src="https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1742643759255352778thumbnail.jpg" alt="Media image">
+								   <div class="card-body">
+									  <div><span class="publication-part">Publication</span></div>
+									 <span class="post-date">Posted on : 10 Jan,2023</span>
+									 <h5 class="card-title">nadi utsav</h5>
+									 <p class="card-text">nadi utsav</p>
+                             <p style="color:#007bff">Download Counter = <span id="download-count-6">53</span></p>
+									 <div class="iten-bt">
+   									 <a href="https://cgwb.gov.in/cgwbpnm/publication-detail/6" class="btn btn-primary">View</a>
+   									
+                              
+
+                                <a href="https://cgwb.gov.in/cgwbpnm/download/6"  class="btn btn-primary bt-download"
+                                          onclick="downloadPdf(6, 'https://cgwb.gov.in/cgwbpnm/download/6')"
+                                          download>
+                                          Download
+                                       </a>
+								   </div>
+								   </div>
+								 </div>
+							 </div>
+						  </div>
+						 
+				  					  
+						  <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+							 <div class="item">
+								<div class="card" style="width: 18rem;">
+									<img class="card-img-top" src="https://cgwb.gov.in/cgwbpnm/public/uploads/documents/16748084721878647881thumbnail.jpg" alt="Media image">
+								   <div class="card-body">
+									  <div><span class="publication-part">Publication</span></div>
+									 <span class="post-date">Posted on : 27 Jan,2023</span>
+									 <h5 class="card-title">Groundwater Flow Simulation and Aquifer Management Plan for Chennai Aquifer System, Tamil Nadu, India</h5>
+									 <p class="card-text">Chennai Aquifer system modeling report</p>
+                             <p style="color:#007bff">Download Counter = <span id="download-count-14">190</span></p>
+									 <div class="iten-bt">
+   									 <a href="https://cgwb.gov.in/cgwbpnm/publication-detail/14" class="btn btn-primary">View</a>
+   									
+                              
+
+                                <a href="https://cgwb.gov.in/cgwbpnm/download/14"  class="btn btn-primary bt-download"
+                                          onclick="downloadPdf(14, 'https://cgwb.gov.in/cgwbpnm/download/14')"
+                                          download>
+                                          Download
+                                       </a>
+								   </div>
+								   </div>
+								 </div>
+							 </div>
+						  </div>
+						 
+				  					  
+						  <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+							 <div class="item">
+								<div class="card" style="width: 18rem;">
+									<img class="card-img-top" src="https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1674814300983021310thumbnail.jpg" alt="Media image">
+								   <div class="card-body">
+									  <div><span class="publication-part">Publication</span></div>
+									 <span class="post-date">Posted on : 27 Jan,2023</span>
+									 <h5 class="card-title">Ground Water Flow Modelling in parts of Middle Ganga Plain, Bihar</h5>
+									 <p class="card-text">Ground Water Flow Modelling in parts of Middle Ganga Plain, Bihar</p>
+                             <p style="color:#007bff">Download Counter = <span id="download-count-15">131</span></p>
+									 <div class="iten-bt">
+   									 <a href="https://cgwb.gov.in/cgwbpnm/publication-detail/15" class="btn btn-primary">View</a>
+   									
+                              
+
+                                <a href="https://cgwb.gov.in/cgwbpnm/download/15"  class="btn btn-primary bt-download"
+                                          onclick="downloadPdf(15, 'https://cgwb.gov.in/cgwbpnm/download/15')"
+                                          download>
+                                          Download
+                                       </a>
+								   </div>
+								   </div>
+								 </div>
+							 </div>
+						  </div>
+						 
+				  					  
+						  <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+							 <div class="item">
+								<div class="card" style="width: 18rem;">
+									<img class="card-img-top" src="https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1674916273761654031thumbnail.jpg" alt="Media image">
+								   <div class="card-body">
+									  <div><span class="publication-part">Publication</span></div>
+									 <span class="post-date">Posted on : 28 Jan,2023</span>
+									 <h5 class="card-title">GROUND WATER FLOW MODELLING OF JAISALMER BLOCK, JAISALMER DISTRICT, RAJASTHAN</h5>
+									 <p class="card-text">As a part of AAP 2018-19, the ground water flow modelling of 11,591 sq. km of Jaisalmer Block, Jaisalmer District was taken up in December-2018. The steady state and transient...</p>
+                             <p style="color:#007bff">Download Counter = <span id="download-count-17">111</span></p>
+									 <div class="iten-bt">
+   									 <a href="https://cgwb.gov.in/cgwbpnm/publication-detail/17" class="btn btn-primary">View</a>
+   									
+                              
+
+                                <a href="https://cgwb.gov.in/cgwbpnm/download/17"  class="btn btn-primary bt-download"
+                                          onclick="downloadPdf(17, 'https://cgwb.gov.in/cgwbpnm/download/17')"
+                                          download>
+                                          Download
+                                       </a>
+								   </div>
+								   </div>
+								 </div>
+							 </div>
+						  </div>
+						 
+				  					  
+						  <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+							 <div class="item">
+								<div class="card" style="width: 18rem;">
+									<img class="card-img-top" src="https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1674916695892274567thumbnail.jpg" alt="Media image">
+								   <div class="card-body">
+									  <div><span class="publication-part">Publication</span></div>
+									 <span class="post-date">Posted on : 28 Jan,2023</span>
+									 <h5 class="card-title">Report on the groundwater flow modeling of Jaisalmer district and parts of Jodhupur district covering 50000 sq km</h5>
+									 <p class="card-text">Report on the groundwater flow modeling of Jaisalmer district and parts of Jodhupur district covering 50000 sq km</p>
+                             <p style="color:#007bff">Download Counter = <span id="download-count-18">96</span></p>
+									 <div class="iten-bt">
+   									 <a href="https://cgwb.gov.in/cgwbpnm/publication-detail/18" class="btn btn-primary">View</a>
+   									
+                              
+
+                                <a href="https://cgwb.gov.in/cgwbpnm/download/18"  class="btn btn-primary bt-download"
+                                          onclick="downloadPdf(18, 'https://cgwb.gov.in/cgwbpnm/download/18')"
+                                          download>
+                                          Download
+                                       </a>
+								   </div>
+								   </div>
+								 </div>
+							 </div>
+						  </div>
+						 
+				  					  
+						  <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+							 <div class="item">
+								<div class="card" style="width: 18rem;">
+									<img class="card-img-top" src="https://cgwb.gov.in/cgwbpnm/public/uploads/documents/16749171431045626623thumbnail.jpg" alt="Media image">
+								   <div class="card-body">
+									  <div><span class="publication-part">Publication</span></div>
+									 <span class="post-date">Posted on : 28 Jan,2023</span>
+									 <h5 class="card-title">REPORT ON Ground Water Modelling Studies Lower Musi sub-basin, Telangana State</h5>
+									 <p class="card-text">Ground water resources are under continuous stress to meet the increasing demands of rising population, industrial and agriculture growth. For sustainable management of ground...</p>
+                             <p style="color:#007bff">Download Counter = <span id="download-count-19">78</span></p>
+									 <div class="iten-bt">
+   									 <a href="https://cgwb.gov.in/cgwbpnm/publication-detail/19" class="btn btn-primary">View</a>
+   									
+                              
+
+                                <a href="https://cgwb.gov.in/cgwbpnm/download/19"  class="btn btn-primary bt-download"
+                                          onclick="downloadPdf(19, 'https://cgwb.gov.in/cgwbpnm/download/19')"
+                                          download>
+                                          Download
+                                       </a>
+								   </div>
+								   </div>
+								 </div>
+							 </div>
+						  </div>
+						 
+				  					  
+						  <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+							 <div class="item">
+								<div class="card" style="width: 18rem;">
+									<img class="card-img-top" src="https://cgwb.gov.in/cgwbpnm/public/uploads/documents/16749176382030307056thumbnail.jpg" alt="Media image">
+								   <div class="card-body">
+									  <div><span class="publication-part">Publication</span></div>
+									 <span class="post-date">Posted on : 28 Jan,2023</span>
+									 <h5 class="card-title">Report on Aquifer Parameter Establishment through Numerical Groundwater model for Rupen Basin, North Gujarat</h5>
+									 <p class="card-text">Three-dimensional mathematical models of regional groundwater flow are beneficial to the management of groundwater resources as they allow the approximation of the components...</p>
+                             <p style="color:#007bff">Download Counter = <span id="download-count-20">84</span></p>
+									 <div class="iten-bt">
+   									 <a href="https://cgwb.gov.in/cgwbpnm/publication-detail/20" class="btn btn-primary">View</a>
+   									
+                              
+
+                                <a href="https://cgwb.gov.in/cgwbpnm/download/20"  class="btn btn-primary bt-download"
+                                          onclick="downloadPdf(20, 'https://cgwb.gov.in/cgwbpnm/download/20')"
+                                          download>
+                                          Download
+                                       </a>
+								   </div>
+								   </div>
+								 </div>
+							 </div>
+						  </div>
+						 
+				  					  
+						  <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+							 <div class="item">
+								<div class="card" style="width: 18rem;">
+									<img class="card-img-top" src="https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1674918113621163141thumbnail.jpg" alt="Media image">
+								   <div class="card-body">
+									  <div><span class="publication-part">Publication</span></div>
+									 <span class="post-date">Posted on : 28 Jan,2023</span>
+									 <h5 class="card-title">Report on Ground Water Flow Simulation through numerical groundwater model for Upper Kharun Aquifer system, Chhattisgarh</h5>
+									 <p class="card-text">The upper Kharun sub basin covering an area of 2200 km was taken up during the 4 weeks Tailormade Training Program from 14th March 2018 to 6th April 2018 held at UNESCO, IHE,...</p>
+                             <p style="color:#007bff">Download Counter = <span id="download-count-21">92</span></p>
+									 <div class="iten-bt">
+   									 <a href="https://cgwb.gov.in/cgwbpnm/publication-detail/21" class="btn btn-primary">View</a>
+   									
+                              
+
+                                <a href="https://cgwb.gov.in/cgwbpnm/download/21"  class="btn btn-primary bt-download"
+                                          onclick="downloadPdf(21, 'https://cgwb.gov.in/cgwbpnm/download/21')"
+                                          download>
+                                          Download
+                                       </a>
+								   </div>
+								   </div>
+								 </div>
+							 </div>
+						  </div>
+						 
+				  					  
+						  <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+							 <div class="item">
+								<div class="card" style="width: 18rem;">
+									<img class="card-img-top" src="https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1674920125822147260thumbnail.jpg" alt="Media image">
+								   <div class="card-body">
+									  <div><span class="publication-part">Publication</span></div>
+									 <span class="post-date">Posted on : 28 Jan,2023</span>
+									 <h5 class="card-title">GROUND WATER FLOW MODELLING REPORT ON NORTHERN PART of BRAHMAPUTRA BASIN, ASSAM</h5>
+									 <p class="card-text">Groundwater is an important resource so it must be managed prudently. However, there are several difficulties associated with understanding a groundwater system. Its invisibil...</p>
+                             <p style="color:#007bff">Download Counter = <span id="download-count-23">55</span></p>
+									 <div class="iten-bt">
+   									 <a href="https://cgwb.gov.in/cgwbpnm/publication-detail/23" class="btn btn-primary">View</a>
+   									
+                              
+
+                                <a href="https://cgwb.gov.in/cgwbpnm/download/23"  class="btn btn-primary bt-download"
+                                          onclick="downloadPdf(23, 'https://cgwb.gov.in/cgwbpnm/download/23')"
+                                          download>
+                                          Download
+                                       </a>
+								   </div>
+								   </div>
+								 </div>
+							 </div>
+						  </div>
+						 
+				  					  
+						  <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+							 <div class="item">
+								<div class="card" style="width: 18rem;">
+									<img class="card-img-top" src="https://cgwb.gov.in/cgwbpnm/public/uploads/documents/16749206431595880736thumbnail.jpg" alt="Media image">
+								   <div class="card-body">
+									  <div><span class="publication-part">Publication</span></div>
+									 <span class="post-date">Posted on : 28 Jan,2023</span>
+									 <h5 class="card-title">Report on Ground Water Modelling Studies in Una Valley District Una, Himachal Pradesh</h5>
+									 <p class="card-text">Numerical three-dimensional groundwater flow model was developed for the Una
+valley, District Una, Himachal Pradesh with the following objectives:
+• To simulate regional gro...</p>
+                             <p style="color:#007bff">Download Counter = <span id="download-count-24">48</span></p>
+									 <div class="iten-bt">
+   									 <a href="https://cgwb.gov.in/cgwbpnm/publication-detail/24" class="btn btn-primary">View</a>
+   									
+                              
+
+                                <a href="https://cgwb.gov.in/cgwbpnm/download/24"  class="btn btn-primary bt-download"
+                                          onclick="downloadPdf(24, 'https://cgwb.gov.in/cgwbpnm/download/24')"
+                                          download>
+                                          Download
+                                       </a>
+								   </div>
+								   </div>
+								 </div>
+							 </div>
+						  </div>
+						 
+				  					  
+						  <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+							 <div class="item">
+								<div class="card" style="width: 18rem;">
+									<img class="card-img-top" src="https://cgwb.gov.in/cgwbpnm/public/uploads/documents/16749743571013827117thumbnail.jpg" alt="Media image">
+								   <div class="card-body">
+									  <div><span class="publication-part">Publication</span></div>
+									 <span class="post-date">Posted on : 29 Jan,2023</span>
+									 <h5 class="card-title">REPORT ON  GROUND WATER FLOW MODELLING STUDY  IN BIST DOAB AREA, PUNJAB, (8908 sq km)</h5>
+									 <p class="card-text">Punjab State is one of the most predominant agricultural region in the country.  Ground water is major source of water for Agriculture, drinking/domestic and industrial sector...</p>
+                             <p style="color:#007bff">Download Counter = <span id="download-count-25">74</span></p>
+									 <div class="iten-bt">
+   									 <a href="https://cgwb.gov.in/cgwbpnm/publication-detail/25" class="btn btn-primary">View</a>
+   									
+                              
+
+                                <a href="https://cgwb.gov.in/cgwbpnm/download/25"  class="btn btn-primary bt-download"
+                                          onclick="downloadPdf(25, 'https://cgwb.gov.in/cgwbpnm/download/25')"
+                                          download>
+                                          Download
+                                       </a>
+								   </div>
+								   </div>
+								 </div>
+							 </div>
+						  </div>
+						 
+				  					  
+						  <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+							 <div class="item">
+								<div class="card" style="width: 18rem;">
+									<img class="card-img-top" src="https://cgwb.gov.in/cgwbpnm/public/uploads/documents/16749751731340352296thumbnail.jpg" alt="Media image">
+								   <div class="card-body">
+									  <div><span class="publication-part">Publication</span></div>
+									 <span class="post-date">Posted on : 29 Jan,2023</span>
+									 <h5 class="card-title">STUDIES ON CONJUNCTIVE USE OF SURFACE AND  GROUND WATER RESOURCES THE GHATAPRABHA  IRRIGATION PROJECT, KARNATAKA BY CENTRAL  GROUND WATER BOARD</h5>
+									 <p class="card-text">The projects studies were taken up with the aim of achieving the following objectives : Evaluation of the hydrogeological situation and quantification of the different compon...</p>
+                             <p style="color:#007bff">Download Counter = <span id="download-count-27">69</span></p>
+									 <div class="iten-bt">
+   									 <a href="https://cgwb.gov.in/cgwbpnm/publication-detail/27" class="btn btn-primary">View</a>
+   									
+                              
+
+                                <a href="https://cgwb.gov.in/cgwbpnm/download/27"  class="btn btn-primary bt-download"
+                                          onclick="downloadPdf(27, 'https://cgwb.gov.in/cgwbpnm/download/27')"
+                                          download>
+                                          Download
+                                       </a>
+								   </div>
+								   </div>
+								 </div>
+							 </div>
+						  </div>
+						 
+				  				  
+                
+               </div>
+			    <nav>
+        <ul class="pagination">
+            
+                            <li class="page-item disabled" aria-disabled="true" aria-label="&laquo; Previous">
+                    <span class="page-link" aria-hidden="true">&lsaquo;</span>
+                </li>
+            
+            
+                            
+                
+                
+                                                                                        <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
+                                                                                                <li class="page-item"><a class="page-link" href="https://cgwb.gov.in/cgwbpnm/publications?cat_id=&amp;page=2">2</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="https://cgwb.gov.in/cgwbpnm/publications?cat_id=&amp;page=3">3</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="https://cgwb.gov.in/cgwbpnm/publications?cat_id=&amp;page=4">4</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="https://cgwb.gov.in/cgwbpnm/publications?cat_id=&amp;page=5">5</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="https://cgwb.gov.in/cgwbpnm/publications?cat_id=&amp;page=6">6</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="https://cgwb.gov.in/cgwbpnm/publications?cat_id=&amp;page=7">7</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="https://cgwb.gov.in/cgwbpnm/publications?cat_id=&amp;page=8">8</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="https://cgwb.gov.in/cgwbpnm/publications?cat_id=&amp;page=9">9</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="https://cgwb.gov.in/cgwbpnm/publications?cat_id=&amp;page=10">10</a></li>
+                                                                                        
+                                    <li class="page-item disabled" aria-disabled="true"><span class="page-link">...</span></li>
+                
+                
+                                            
+                
+                
+                                                                                        <li class="page-item"><a class="page-link" href="https://cgwb.gov.in/cgwbpnm/publications?cat_id=&amp;page=157">157</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="https://cgwb.gov.in/cgwbpnm/publications?cat_id=&amp;page=158">158</a></li>
+                                                                        
+            
+                            <li class="page-item">
+                    <a class="page-link" href="https://cgwb.gov.in/cgwbpnm/publications?cat_id=&amp;page=2" rel="next" aria-label="Next &raquo;">&rsaquo;</a>
+                </li>
+                    </ul>
+    </nav>
+
+            </div>
+         </div>  
+	 
+	 
+    </section>
+
+    
+                         
+      <footer class="footer footer p-5 text-center">
+				<div class="container">
+					<div class="row text-white">
+						<div class="col-6 text-left">
+							<p class="mb-0">
+								<a href="index.html" class="text-white"><strong>CGWB</strong></a> &copy;
+							</p>
+						</div>
+						<div class="col-6 text-right">
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<a class="text-white" href="#">Support</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-white" href="#">Help Center</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-white" href="#">Privacy</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-white" href="#">Terms</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
+   
+      <!-- footer logo section -->
+      <script src="https://cgwb.gov.in/cgwbpnm/public/front/js/jquery-3.3.1.min.js"></script>
+      <script src="https://cgwb.gov.in/cgwbpnm/public/front/js/bootstrap-4.2.1.js"></script>
+      <script src="https://cgwb.gov.in/cgwbpnm/public/front/js/jquery.easy-ticker.min.js"></script>
+      <script src="https://cgwb.gov.in/cgwbpnm/public/front/js/wow.min.js"></script>
+      <script src="https://cgwb.gov.in/cgwbpnm/public/front/js/owl.carousel.js"></script>
+      <script src="https://cgwb.gov.in/cgwbpnm/public/front/js/jquery.waypoints.min.js"></script>
+      <script src="https://cgwb.gov.in/cgwbpnm/public/front/js/jquery.counterup.min.js"></script>
+      <script src="https://cgwb.gov.in/cgwbpnm/public/front/js/custom.js"></script>
+	   
+      <script>
+         function handlePreloader() {
+             if($('.preloader').length){
+                 $('body').removeClass('active-preloader-ovh');
+                 $('.preloader').fadeOut();
+             }
+         }
+         
+         
+         jQuery(window).on('load', function() {
+             (function($) {
+                 handlePreloader()
+         
+                 // thmScrollAnim();
+         
+             })(jQuery);
+         });
+    
+    var state_obj = $('#stateSelect');      
+    if ($($this).val() != '' ) {
+	    showSelectedStateOptions(state_obj, 'districtSelect');
+	}     
+function showSelectedStateOptions($this,district_test_id)
+{
+	var arr = $($this).val();
+	document.getElementById('overlay-loader').style.display = 'flex';
+	if(arr == 'All')
+	{
+		 var option ='';
+		  var district_selected_id = "";
+        if(district_selected_id == 'All')
+            {
+                selected = 'selected';
+            }else{
+                selected = '';
+            }
+		 option +='<option value="">Select District...</option>';
+		option +='<option  '+selected+'  value="All">All</option>';
+		 $('#'+district_test_id).html(option);
+		 document.getElementById('overlay-loader').style.display = 'none';
+	}else{
+	$.ajax({
+			url: "https://cgwb.gov.in/cgwbpnm/get-district",
+			method: "POST",
+			dataType: 'json',
+			data: {
+				'state_ids[]': arr,
+				 
+			},
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			},
+			success: function(result) {
+				
+				$('#'+district_test_id).html('');
+				   var option ='';
+				   var selected = '';
+				   var district_selected_id = "";
+				   option +='<option value="">Select District...</option>'; 
+				   
+				   if(result!=null){
+						 $.each(result, function(i, item) {
+						 
+						if(district_selected_id == item.district_code)
+						{
+							selected = 'selected';
+						}else{
+							selected = '';
+						}	 
+                          option +="<option "+selected+" value='"+item.district_code+"'>"+item.district_name+"</option>";
+                      });
+				   }
+				 $('#'+district_test_id).html(option);
+				 document.getElementById('overlay-loader').style.display = 'none';
+			}
+		});
+	}
+}
+
+
+function downloadPdf(publicationId, downloadUrl) {
+	event.preventDefault();
+	document.getElementById('overlay-loader').style.display = 'flex';
+    fetch(`https://cgwb.gov.in/cgwbpnm/publication/${publicationId}`, {
+        method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': 'XZsO144yJrd6q1O46DPXUoeG0wxtsz86DmB4XnSV',
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Update download count UI
+            document.getElementById('download-count-' + publicationId).innerText = data.new_count;
+
+            // Trigger file download without redirect
+            const link = document.createElement('a');
+            link.href = downloadUrl;           
+            link.download = ''; // Optional: specify filename or leave empty
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        } else {
+            alert('Could not update download count.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Download failed.');
+    })
+    .finally(() => {
+        // Hide loader no matter what
+       document.getElementById('overlay-loader').style.display = 'none';
+    });
+}
+
+      </script>
+   </body>
+</html>
