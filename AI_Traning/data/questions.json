@@ -1,5 +1,14 @@
 [
     {
         "question": "How much rainwater can a concrete roof collect?"
+    },
+    {
+        "question": "What is the current groundwater level at my exact plot in Kopargaon?"
+    },
+    {
+        "question": "How much rainwater can a rooftop collect?"
+    },
+    {
+        "question": "What is rooftop rainwater harvesting?"
     }
 ]

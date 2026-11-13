@@ -1,0 +1,11 @@
+
+Answer the user's JalSanchay question using the supplied knowledge records.
+
+User question:
+{question}
+
+Relevant knowledge records:
+{context}
+
+If the records do not contain the answer, say that the available
+JalSanchay data is insufficient. Do not make up technical values.
