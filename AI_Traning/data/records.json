@@ -1,162 +1,122 @@
 [
     {
-        "topic": "Roof Runoff Coefficient - GI Sheet",
+        "topic": "Roof runoff coefficient",
         "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 7, Table 7.2",
-        "rule_or_value": "Runoff coefficient = 0.9",
-        "unit": "Dimensionless",
+        "section": "7.2.7 - Table 7.2",
+        "rule_or_value": "GI Sheet: 0.9",
+        "unit": "coefficient",
         "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
     },
     {
-        "topic": "Roof Runoff Coefficient - Asbestos",
+        "topic": "Roof runoff coefficient",
         "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 7, Table 7.2",
-        "rule_or_value": "Runoff coefficient = 0.8",
-        "unit": "Dimensionless",
+        "section": "7.2.7 - Table 7.2",
+        "rule_or_value": "Asbestos: 0.8",
+        "unit": "coefficient",
         "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
     },
     {
-        "topic": "Roof Runoff Coefficient - Tiled Roof",
+        "topic": "Roof runoff coefficient",
         "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 7, Table 7.2",
-        "rule_or_value": "Runoff coefficient = 0.75",
-        "unit": "Dimensionless",
+        "section": "7.2.7 - Table 7.2",
+        "rule_or_value": "Tiled roof: 0.75",
+        "unit": "coefficient",
         "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
     },
     {
-        "topic": "Roof Runoff Coefficient - Concrete",
+        "topic": "Roof runoff coefficient",
         "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 7, Table 7.2",
-        "rule_or_value": "Runoff coefficient = 0.7",
-        "unit": "Dimensionless",
+        "section": "7.2.7 - Table 7.2",
+        "rule_or_value": "Concrete roof: 0.7",
+        "unit": "coefficient",
         "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
     },
     {
-        "topic": "Roof Catchment",
+        "topic": "Storage tank capacity",
         "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 7, Section 7.2.1",
-        "rule_or_value": "Corrugated iron sheets, asbestos sheets, tiles and concrete roofs can be used. Thatched roofs are unsuitable.",
-        "unit": "Description",
+        "section": "7.2.7 - Storage Tank",
+        "rule_or_value": "Ferro-cement tanks: 4,000 to 15,000 litres",
+        "unit": "litres",
         "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
     },
     {
-        "topic": "Gutters",
+        "topic": "Storage tank capacity",
         "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 7, Section 7.2.3",
-        "rule_or_value": "Channels installed along roof edges to collect and carry rainwater to the storage tank. Can be rectangular or semi-circular.",
-        "unit": "Description",
+        "section": "7.2.7 - Storage Tank",
+        "rule_or_value": "Brick, stone or cement brick tanks: 15,000 to 50,000 litres",
+        "unit": "litres",
         "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
     },
     {
-        "topic": "Down Pipe",
+        "topic": "Storage tank capacity",
         "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 7, Section 7.2.4",
-        "rule_or_value": "PVC or GI pipes of 50–75 mm diameter are commonly used to carry water from gutters to the tank.",
-        "unit": "mm",
+        "section": "7.2.7 - Storage Tank",
+        "rule_or_value": "Concrete and RCC tanks: capacities exceeding 50,000 litres",
+        "unit": "litres",
         "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
     },
     {
-        "topic": "First Flush Arrangement",
+        "topic": "Per capita water requirement",
         "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 7, Section 7.2.5",
-        "rule_or_value": "Diverts the initial rainwater carrying dust and debris from the roof so it does not enter the storage tank.",
-        "unit": "Description",
+        "section": "7.2.7.1 - Rural Storage Tanks",
+        "rule_or_value": "6\nlitres per day",
+        "unit": "litres/person/day",
         "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
     },
     {
-        "topic": "Filter Unit",
+        "topic": "Additional water requirement",
         "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 7, Section 7.2.6",
-        "rule_or_value": "Filter media such as sand removes suspended and colloidal impurities from rainwater.",
-        "unit": "Description",
+        "section": "7.2.7.1 - Rural Storage Tanks",
+        "rule_or_value": "Add 20% for visitors, festivals and wastage",
+        "unit": "percentage",
         "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
     },
     {
-        "topic": "Storage Tank Capacity",
+        "topic": "Storage tank sizing formula",
         "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 7, Section 7.2.7",
-        "rule_or_value": "Ferro-cement tanks: 4,000–15,000 litres; brick or stone tanks: 15,000–50,000 litres; concrete or RCC tanks: above 50,000 litres.",
-        "unit": "Litres",
+        "section": "7.2.7.1 - Rural Storage Tanks",
+        "rule_or_value": "Household members x scarcity days x per capita water requirement",
+        "unit": "litres",
         "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
     },
     {
-        "topic": "Rural Storage Tank Sizing",
+        "topic": "Rainwater harvesting formula",
         "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 7, Section 7.2.7.1",
-        "rule_or_value": "Tank capacity = Number of people × Days of water scarcity × 6 litres per person per day.",
-        "unit": "Litres",
+        "section": "7.2.7 - Storage Tank",
+        "rule_or_value": "Annual rainfall x roof area x runoff coefficient",
+        "unit": "litres",
         "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
     },
     {
-        "topic": "Additional Water Requirement",
+        "topic": "Collection sump dimensions",
         "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 7, Section 7.2.7.1",
-        "rule_or_value": "Add approximately 20% to the basic water requirement to account for visitors, festivals and wastage. The manual uses 6 litres per person per day.",
-        "unit": "Percentage and litres/person/day",
-        "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
-    },
-    {
-        "topic": "Collection Sump",
-        "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 7, Section 7.2.8",
-        "rule_or_value": "A chamber provided below the storage tank tap to collect water. Recommended size is 60 cm × 60 cm × 60 cm.",
+        "section": "7.2.8 - Collection Sump",
+        "rule_or_value": "60 cm x 60 cm x 60 cm",
         "unit": "cm",
         "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
     },
     {
-        "topic": "Pump Unit",
+        "topic": "Water filtration",
         "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 7, Section 7.2.9",
-        "rule_or_value": "A hand pump or power pump can be fitted to the storage sump. Pump size depends on water consumption.",
-        "unit": "Description",
+        "section": "7.2.6.1 - Process of Filtration",
+        "rule_or_value": "Filter media such as sand removes suspended and colloidal impurities",
+        "unit": "description",
         "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
     },
     {
-        "topic": "Annual Roof Water Availability",
+        "topic": "Filter media",
         "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 7, Section 7.2.7",
-        "rule_or_value": "Water available (litres) = Annual rainfall (mm) × Roof area (square metres) × Runoff coefficient.",
-        "unit": "Litres",
+        "section": "7.2.6 - Filtration of Water",
+        "rule_or_value": "Coarse sand, charcoal, coconut fiber, pebbles and gravels",
+        "unit": "materials",
         "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
     },
     {
-        "topic": "Urban Rainwater Availability",
+        "topic": "Rainwater collection example",
         "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 7, Section 7.2.7.2",
-        "rule_or_value": "Water available per spell = Rainfall per spell × Roof area × Runoff coefficient.",
-        "unit": "Litres",
-        "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
-    },
-    {
-        "topic": "Runoff Definition",
-        "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 4, Section 4.2",
-        "rule_or_value": "Runoff is the portion of precipitation that reaches rivers or oceans as surface or subsurface flow after infiltration and other losses.",
-        "unit": "Description",
-        "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
-    },
-    {
-        "topic": "Runoff Coefficients by Land Use",
-        "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 4, Table 4.4",
-        "rule_or_value": "Urban residential: 0.3–0.5; Forests: 0.05–0.2; Commercial and industrial: 0.9; Parks, farms and pastures: 0.05–0.3; Asphalt or concrete pavement: 0.85.",
-        "unit": "Dimensionless",
-        "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
-    },
-    {
-        "topic": "Runoff Estimation Formula",
-        "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 4, Section 4.2.2.1.2",
-        "rule_or_value": "Runoff (R) = Runoff coefficient (K) × Rainfall (P). This method is applicable only to small projects.",
-        "unit": "cm",
-        "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
-    },
-    {
-        "topic": "Binnie Runoff Estimation Table",
-        "document": "Manual on Artificial Recharge of Ground Water",
-        "section": "Chapter 4, Table 4.3",
-        "rule_or_value": "Annual rainfall (mm) and runoff percentage: 500 = 15%; 600 = 21%; 700 = 25%; 800 = 29%; 900 = 34%; 1000 = 38%; 1100 = 40%.",
-        "unit": "mm and percentage",
+        "section": "7.2.7 - Storage Tank",
+        "rule_or_value": "1000 mm rainfall x 20 sq.m roof x 0.75 coefficient = 15,000 litres",
+        "unit": "litres",
         "source_url": "https://cgwb.gov.in/cgwbpnm/public/uploads/documents/1679997242339591060file.pdf"
     }
 ]
