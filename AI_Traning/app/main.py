@@ -1,7 +1,7 @@
 
 import json
 from pathlib import Path
-
+from app.vectorstore import semantic_search
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
@@ -148,3 +148,77 @@ def chat(data: Question):
 
     except (ValueError, RuntimeError) as error:
         raise HTTPException(status_code=502, detail=str(error))
+
+
+@app.get("/search/semantic")
+def semantic_search_endpoint(q: str, limit: int = 5):
+
+    if not q.strip():
+        raise HTTPException(
+            status_code=400,
+            detail="Search query cannot be empty"
+        )
+
+    if limit < 1 or limit > 20:
+        raise HTTPException(
+            status_code=400,
+            detail="Limit must be between 1 and 20"
+        )
+
+    try:
+
+        results = semantic_search(q, limit)
+
+        return {
+            "query": q,
+            "total": len(results),
+            "results": results
+        }
+
+    except ValueError as error:
+        raise HTTPException(
+            status_code=400,
+            detail=str(error)
+        )
+
+    except RuntimeError as error:
+        raise HTTPException(
+            status_code=503,
+            detail=str(error)
+        )
+
+@app.get("/search/semantic")
+def semantic_search_endpoint(q: str, limit: int = 5):
+
+    if not q.strip():
+        raise HTTPException(
+            status_code=400,
+            detail="Search query cannot be empty"
+        )
+
+    if limit < 1 or limit > 20:
+        raise HTTPException(
+            status_code=400,
+            detail="Limit must be between 1 and 20"
+        )
+
+    try:
+        results = semantic_search(q, limit)
+
+        return {
+            "query": q,
+            "total": len(results),
+            "results": results
+        }
+
+    except ValueError as error:
+        raise HTTPException(
+            status_code=400,
+            detail=str(error)
+        )
+
+    except RuntimeError as error:
+        raise HTTPException(
+            status_code=503,
+            detail=str(error)
+        )
