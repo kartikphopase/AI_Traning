@@ -4,7 +4,7 @@ from pathlib import Path
 from app.vectorstore import semantic_search
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-
+from app.rag import answer_question
 from app.smart_search import search_records
 from app.llm import generate_answer
 
@@ -210,6 +210,37 @@ def semantic_search_endpoint(q: str, limit: int = 5):
             "total": len(results),
             "results": results
         }
+
+    except ValueError as error:
+        raise HTTPException(
+            status_code=400,
+            detail=str(error)
+        )
+
+    except RuntimeError as error:
+        raise HTTPException(
+            status_code=503,
+            detail=str(error)
+        )
+
+
+@app.post("/ask")
+def ask_question_endpoint(q: str, top_k: int = 5):
+
+    if not q.strip():
+        raise HTTPException(
+            status_code=400,
+            detail="Question cannot be empty"
+        )
+
+    if top_k < 1 or top_k > 20:
+        raise HTTPException(
+            status_code=400,
+            detail="top_k must be between 1 and 20"
+        )
+
+    try:
+        return answer_question(q, top_k)
 
     except ValueError as error:
         raise HTTPException(

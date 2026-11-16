@@ -1,0 +1,93 @@
+
+[
+  {
+    "id": 1,
+    "question": "What is the runoff coefficient for tiled roofs?",
+    "expected_keywords": ["tiled", "0.75"],
+    "must_abstain": false
+  },
+  {
+    "id": 2,
+    "question": "How much rainwater can a rooftop collect?",
+    "expected_keywords": ["rainfall", "roof area", "runoff coefficient"],
+    "must_abstain": false
+  },
+  {
+    "id": 3,
+    "question": "What is the purpose of artificial groundwater recharge?",
+    "expected_keywords": ["groundwater", "replenishment", "recharge"],
+    "must_abstain": false
+  },
+  {
+    "id": 4,
+    "question": "Which roofing materials are suitable for rainwater harvesting?",
+    "expected_keywords": ["corrugated iron", "tiles", "concrete"],
+    "must_abstain": false
+  },
+  {
+    "id": 5,
+    "question": "What is the recommended downpipe size?",
+    "expected_keywords": ["50", "75", "mm"],
+    "must_abstain": false
+  },
+  {
+    "id": 6,
+    "question": "What is the current groundwater level at my exact plot in Kopargaon?",
+    "expected_keywords": ["I don't know"],
+    "must_abstain": true
+  },
+  {
+    "id": 7,
+    "question": "What type of filter can be used for rooftop rainwater harvesting?",
+    "expected_keywords": ["sand", "charcoal", "gravel"],
+    "must_abstain": false
+  },
+  {
+    "id": 8,
+    "question": "How much water should be stored per person during the scarcity period?",
+    "expected_keywords": ["5 litres", "6 litres", "person"],
+    "must_abstain": false
+  },
+  {
+    "id": 9,
+    "question": "What is the purpose of gutters in rooftop rainwater harvesting?",
+    "expected_keywords": ["collect", "transport", "roof"],
+    "must_abstain": false
+  },
+  {
+    "id": 10,
+    "question": "Which artificial groundwater recharge method is suitable for my area?",
+    "expected_keywords": ["rainfall", "soil", "topography"],
+    "must_abstain": false
+  },
+  {
+    "id": 11,
+    "question": "What factors affect rooftop rainwater harvesting potential?",
+    "expected_keywords": ["rainfall", "roof area", "runoff coefficient"],
+    "must_abstain": false
+  },
+  {
+    "id": 12,
+    "question": "How is rooftop rainwater harvesting storage capacity calculated?",
+    "expected_keywords": ["rainfall", "area", "runoff coefficient"],
+    "must_abstain": false
+  },
+  {
+    "id": 13,
+    "question": "What is a recharge pit?",
+    "expected_keywords": ["recharge", "pit", "groundwater"],
+    "must_abstain": false
+  },
+  {
+    "id": 14,
+    "question": "What is the role of a first-flush device?",
+    "expected_keywords": ["initial", "rainfall", "contaminants"],
+    "must_abstain": false
+  },
+  {
+    "id": 15,
+    "question": "Can rooftop rainwater harvesting help recharge groundwater?",
+    "expected_keywords": ["rainwater", "recharge", "groundwater"],
+    "must_abstain": false
+  }
+]

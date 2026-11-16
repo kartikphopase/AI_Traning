@@ -6,3 +6,4 @@ __pycache__/
 *.py[cod]
 .vscode/
 data/chroma/
+data/eval_chroma/
