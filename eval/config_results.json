@@ -1,0 +1,25 @@
+{
+    "evaluation_questions": 15,
+    "answerable_questions": 14,
+    "winner": "B",
+    "results": [
+        {
+            "name": "A",
+            "chunk_size": 1200,
+            "overlap": 200,
+            "top_k": 3,
+            "total_chunks": 502,
+            "keyword_coverage": 80.95,
+            "q6_abstention": true
+        },
+        {
+            "name": "B",
+            "chunk_size": 800,
+            "overlap": 100,
+            "top_k": 5,
+            "total_chunks": 705,
+            "keyword_coverage": 83.33,
+            "q6_abstention": true
+        }
+    ]
+}
