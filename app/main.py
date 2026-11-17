@@ -1,18 +1,25 @@
 
 import json
 from pathlib import Path
-from app.vectorstore import semantic_search
+from typing import Optional
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+from langgraph.types import Command
+
+from app.vectorstore import semantic_search
 from app.rag import answer_question
 from app.smart_search import search_records
 from app.llm import generate_answer
+from app.graph import agent_graph
+
 
 app = FastAPI(
     title="JalSanchay API",
     description="CGWB-based rooftop rainwater harvesting information",
-    version="1.1.0"
+    version="1.2.0"
 )
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 RECORDS_FILE = BASE_DIR / "data" / "records.json"
@@ -20,10 +27,26 @@ QUESTIONS_FILE = BASE_DIR / "data" / "questions.json"
 PROMPTS_DIR = BASE_DIR / "prompts"
 
 
+
+class Question(BaseModel):
+    question: str
+
+
+class AgentRequest(BaseModel):
+    question: str = ""
+    calculator_inputs: Optional[dict] = None
+    top_k: int = 5
+    thread_id: str
+    approved: Optional[bool] = None
+
+
+
+
 def load_records():
     try:
         with open(RECORDS_FILE, "r", encoding="utf-8") as file:
             return json.load(file)
+
     except (FileNotFoundError, json.JSONDecodeError):
         return []
 
@@ -35,13 +58,16 @@ def load_prompt(filename):
         return file.read()
 
 
-class Question(BaseModel):
-    question: str
 
 
 @app.get("/health")
 def health():
-    return {"status": "healthy", "service": "JalSanchay"}
+    return {
+        "status": "healthy",
+        "service": "JalSanchay"
+    }
+
+
 
 
 @app.get("/records")
@@ -55,9 +81,14 @@ def get_record(record_id: int):
     records = load_records()
 
     if record_id < 1 or record_id > len(records):
-        raise HTTPException(status_code=404, detail="Record not found")
+        raise HTTPException(
+            status_code=404,
+            detail="Record not found"
+        )
 
     return records[record_id - 1]
+
+
 
 
 @app.get("/search")
@@ -65,10 +96,19 @@ def search(q: str):
     records = load_records()
 
     if not q.strip():
-        raise HTTPException(status_code=400, detail="Search query cannot be empty")
+        raise HTTPException(
+            status_code=400,
+            detail="Search query cannot be empty"
+        )
 
     results = search_records(records, q)
-    return {"query": q, "total": len(results), "results": results}
+
+    return {
+        "query": q,
+        "total": len(results),
+        "results": results
+    }
+
 
 
 @app.post("/questions")
@@ -76,7 +116,10 @@ def submit_question(data: Question):
     question = data.question.strip()
 
     if not question:
-        raise HTTPException(status_code=400, detail="Question cannot be empty")
+        raise HTTPException(
+            status_code=400,
+            detail="Question cannot be empty"
+        )
 
     try:
         if QUESTIONS_FILE.exists():
@@ -88,7 +131,12 @@ def submit_question(data: Question):
         questions.append({"question": question})
 
         with open(QUESTIONS_FILE, "w", encoding="utf-8") as file:
-            json.dump(questions, file, indent=4, ensure_ascii=False)
+            json.dump(
+                questions,
+                file,
+                indent=4,
+                ensure_ascii=False
+            )
 
         return {
             "message": "Question submitted successfully",
@@ -96,7 +144,12 @@ def submit_question(data: Question):
         }
 
     except (OSError, json.JSONDecodeError) as error:
-        raise HTTPException(status_code=500, detail=str(error))
+        raise HTTPException(
+            status_code=500,
+            detail=str(error)
+        )
+
+
 
 
 @app.post("/chat")
@@ -104,13 +157,15 @@ def chat(data: Question):
     question = data.question.strip()
 
     if not question:
-        raise HTTPException(status_code=400, detail="Question cannot be empty")
+        raise HTTPException(
+            status_code=400,
+            detail="Question cannot be empty"
+        )
 
     try:
         records = load_records()
         relevant_records = search_records(records, question)
 
-        # Keep the context small and relevant.
         context = json.dumps(
             relevant_records[:8],
             ensure_ascii=False,
@@ -119,10 +174,14 @@ def chat(data: Question):
 
         system_prompt = load_prompt("system.txt")
 
-        # Select a task prompt.
         calculation_words = [
-            "calculate", "calculation", "how much",
-            "litres", "liters", "capacity", "estimate"
+            "calculate",
+            "calculation",
+            "how much",
+            "litres",
+            "liters",
+            "capacity",
+            "estimate"
         ]
 
         if any(word in question.lower() for word in calculation_words):
@@ -132,7 +191,11 @@ def chat(data: Question):
 
         user_prompt = task_prompt.format(
             question=question,
-            context=context if relevant_records else "No relevant CGWB records found."
+            context=(
+                context
+                if relevant_records
+                else "No relevant CGWB records found."
+            )
         )
 
         result = generate_answer(system_prompt, user_prompt)
@@ -144,48 +207,19 @@ def chat(data: Question):
         }
 
     except FileNotFoundError as error:
-        raise HTTPException(status_code=500, detail=str(error))
+        raise HTTPException(
+            status_code=500,
+            detail=str(error)
+        )
 
     except (ValueError, RuntimeError) as error:
-        raise HTTPException(status_code=502, detail=str(error))
-
-
-@app.get("/search/semantic")
-def semantic_search_endpoint(q: str, limit: int = 5):
-
-    if not q.strip():
         raise HTTPException(
-            status_code=400,
-            detail="Search query cannot be empty"
-        )
-
-    if limit < 1 or limit > 20:
-        raise HTTPException(
-            status_code=400,
-            detail="Limit must be between 1 and 20"
-        )
-
-    try:
-
-        results = semantic_search(q, limit)
-
-        return {
-            "query": q,
-            "total": len(results),
-            "results": results
-        }
-
-    except ValueError as error:
-        raise HTTPException(
-            status_code=400,
+            status_code=502,
             detail=str(error)
         )
 
-    except RuntimeError as error:
-        raise HTTPException(
-            status_code=503,
-            detail=str(error)
-        )
+
+
 
 @app.get("/search/semantic")
 def semantic_search_endpoint(q: str, limit: int = 5):
@@ -222,6 +256,8 @@ def semantic_search_endpoint(q: str, limit: int = 5):
             status_code=503,
             detail=str(error)
         )
+
+
 
 
 @app.post("/ask")
@@ -251,5 +287,99 @@ def ask_question_endpoint(q: str, top_k: int = 5):
     except RuntimeError as error:
         raise HTTPException(
             status_code=503,
+            detail=str(error)
+        )
+
+
+
+
+
+@app.post("/agent")
+def agent_endpoint(data: AgentRequest):
+
+    thread_id = data.thread_id.strip()
+
+    if not thread_id:
+        raise HTTPException(
+            status_code=400,
+            detail="thread_id cannot be empty"
+        )
+
+    if data.top_k < 1 or data.top_k > 20:
+        raise HTTPException(
+            status_code=400,
+            detail="top_k must be between 1 and 20"
+        )
+
+    config = {
+        "configurable": {
+            "thread_id": thread_id
+        }
+    }
+
+    try:
+
+       
+        if data.approved is not None:
+
+            snapshot = agent_graph.get_state(config)
+
+            if not snapshot.next:
+                raise HTTPException(
+                    status_code=400,
+                    detail="No pending approval for this thread."
+                )
+
+            result = agent_graph.invoke(
+                Command(
+                    resume={"approved": data.approved}
+                ),
+                config=config
+            )
+
+        else:
+
+            question = data.question.strip()
+
+            if not question:
+                raise HTTPException(
+                    status_code=400,
+                    detail="Question cannot be empty"
+                )
+
+            result = agent_graph.invoke(
+                {
+                    "question": question,
+                    "calculator_inputs": data.calculator_inputs,
+                    "top_k": data.top_k
+                },
+                config=config
+            )
+
+        snapshot = agent_graph.get_state(config)
+
+     
+        if snapshot.next:
+
+            return {
+                "status": "approval_required",
+                "thread_id": thread_id,
+                "approval_request": (
+                    snapshot.tasks[0].interrupts[0].value
+                )
+            }
+
+        return {
+            "status": "completed",
+            "thread_id": thread_id,
+            "result": result.get("result")
+        }
+
+    except HTTPException:
+        raise
+
+    except (ValueError, RuntimeError) as error:
+        raise HTTPException(
+            status_code=400,
             detail=str(error)
         )

@@ -128,8 +128,14 @@ def generate_answer(system_prompt, user_prompt):
         payload = {
             "model": model,
             "messages": [
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt}
+                {
+                    "role": "system",
+                    "content": system_prompt + "\nReturn your response in valid JSON format."
+                },
+                {
+                    "role": "user",
+                    "content": user_prompt
+                }
             ],
             "temperature": 0.2,
             "response_format": {"type": "json_object"}
