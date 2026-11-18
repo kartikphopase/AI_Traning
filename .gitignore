@@ -7,3 +7,4 @@ __pycache__/
 .vscode/
 data/chroma/
 data/eval_chroma/
+data/feedback.jsonl
