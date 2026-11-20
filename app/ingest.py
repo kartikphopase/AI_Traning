@@ -1,8 +1,9 @@
 
 import json
 import re
-import fitz
 from pathlib import Path
+
+import fitz
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 PDF_PATH = BASE_DIR / "data" / "raw" / "1679997242339591060file.pdf"
@@ -263,9 +264,10 @@ def main():
         print("Extracted records:", len(extracted_records))
         print("Saved to:", OUTPUT_PATH)
 
-    except Exception as error:
+    except Exception as error:  # noqa: BLE001
         print("Ingestion error:", error)
 
 
 if __name__ == "__main__":
     main()
+

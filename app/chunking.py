@@ -1,8 +1,8 @@
 
 import re
-import fitz
-
 from pathlib import Path
+
+import fitz
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 

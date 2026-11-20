@@ -3,7 +3,7 @@ from app.rag import answer_question
 from app.tools import rooftop_rainwater_calculator
 
 
-def run_agent(question: str, calculator_inputs: dict = None, top_k: int = 5):
+def run_agent(question: str, calculator_inputs: dict | None = None, top_k: int = 5):
     """
     Hand-written JalSanchay agent.
     Chooses between the rainwater calculator and RAG search.
@@ -70,3 +70,4 @@ def run_agent(question: str, calculator_inputs: dict = None, top_k: int = 5):
         "status": "success",
         "result": rag_result
     }
+

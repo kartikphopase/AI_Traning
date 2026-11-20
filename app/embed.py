@@ -1,8 +1,8 @@
 
 import os
-
 from pathlib import Path
-from dotenv import load_dotenv, dotenv_values
+
+from dotenv import dotenv_values, load_dotenv
 from google import genai
 
 BASE_DIR = Path(__file__).resolve().parent.parent

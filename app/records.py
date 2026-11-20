@@ -2,7 +2,6 @@
 from data.sample_records import records
 
 
-
 def load_records():
     return records
 

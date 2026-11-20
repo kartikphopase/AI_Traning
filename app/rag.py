@@ -1,7 +1,6 @@
 
-from app.vectorstore import semantic_search
 from app.llm import generate_answer
-
+from app.vectorstore import semantic_search
 
 SYSTEM_PROMPT = """
 You are JalSanchay, an assistant specializing in rooftop rainwater
