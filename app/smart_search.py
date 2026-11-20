@@ -1,7 +1,7 @@
 
+import math
 import re
 from collections import Counter
-import math
 
 
 def tokenize(text):

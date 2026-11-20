@@ -1,16 +1,15 @@
 
-import json
 import hashlib
+import json
 import time
 from pathlib import Path
 
-import pymupdf
 import chromadb
+import pymupdf
 
 from app.chunking import clean_text, split_text
 from app.embed import embed_texts
 from app.rag import answer_question
-
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 

@@ -1,18 +1,16 @@
 
 import json
 from pathlib import Path
-from typing import Optional
 
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
 from langgraph.types import Command
+from pydantic import BaseModel
 
-from app.vectorstore import semantic_search
+from app.graph import agent_graph
+from app.llm import generate_answer
 from app.rag import answer_question
 from app.smart_search import search_records
-from app.llm import generate_answer
-from app.graph import agent_graph
-
+from app.vectorstore import semantic_search
 
 app = FastAPI(
     title="JalSanchay API",
@@ -34,10 +32,10 @@ class Question(BaseModel):
 
 class AgentRequest(BaseModel):
     question: str = ""
-    calculator_inputs: Optional[dict] = None
+    calculator_inputs: dict | None = None
     top_k: int = 5
     thread_id: str
-    approved: Optional[bool] = None
+    approved: bool | None = None
 
 
 

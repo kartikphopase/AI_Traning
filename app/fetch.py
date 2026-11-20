@@ -1,7 +1,9 @@
 import truststore
+
 truststore.inject_into_ssl()
-import requests
 from pathlib import Path
+
+import requests
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 RAW_DIR = BASE_DIR / "data" / "raw"
