@@ -3,26 +3,23 @@ import json
 import os
 import uuid
 from datetime import datetime
-from pathlib import Path
 from io import BytesIO
+from pathlib import Path
 
 import requests
 import streamlit as st
-
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.pagesizes import A4
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
 from reportlab.platypus import (
-    SimpleDocTemplate,
     Paragraph,
+    SimpleDocTemplate,
     Spacer,
     Table,
     TableStyle,
 )
-
-
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
@@ -855,7 +852,7 @@ elif page == "Design Sheet":
 
             st.success("The project report is ready.")
 
-        except Exception as error:
+        except Exception as error:  # noqa: BLE001
             st.error(f"PDF generation failed: {error}")
 
 
