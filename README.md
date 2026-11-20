@@ -1,3 +1,5 @@
+[![JalSanchay CI](https://github.com/kartikphopase/AI_Traning/actions/workflows/ci.yml/badge.svg)](https://github.com/kartikphopase/AI_Traning/actions/workflows/ci.yml)
+
 # JalSanchay
 
 Product: JalSanchay
