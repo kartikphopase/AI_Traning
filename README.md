@@ -29,3 +29,31 @@ We evaluated two RAG configurations using a 15-question evaluation dataset.
 Both configurations successfully passed the Q6 abstention test, meaning the system correctly responded with "I don't know" when asked for current groundwater levels at an exact plot in Kopargaon.
 
 *Note: Keyword coverage measures how many expected keywords were retrieved. It does not represent overall answer accuracy.*
+
+## Day 12 – Deployment
+
+JalSanchay has been successfully deployed using Render.
+
+### Live Application
+
+- **Frontend (Streamlit):** https://jalsanchay-ui.onrender.com
+- **Backend (FastAPI):** https://ai-traning-ojdc.onrender.com
+- **API Health Check:** https://ai-traning-ojdc.onrender.com/health
+- **API Documentation:** https://ai-traning-ojdc.onrender.com/docs
+
+### Deployment Architecture
+
+- Frontend: Streamlit
+- Backend: FastAPI
+- LLM: Groq (`openai/gpt-oss-120b`)
+- Embeddings: Google Gemini (`gemini-embedding-001`)
+- Vector Database: ChromaDB
+- Hosting: Render
+
+### Deployment Verification
+
+- Backend health endpoint returns HTTP 200.
+- ChromaDB index successfully populated with 502 document chunks.
+- RAG question answering tested successfully.
+- Source citations from the CGWB manual verified.
+- Frontend successfully communicates with the deployed backend.
