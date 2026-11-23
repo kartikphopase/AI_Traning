@@ -10,13 +10,23 @@ from app.graph import agent_graph
 from app.llm import generate_answer
 from app.rag import answer_question
 from app.smart_search import search_records
-from app.vectorstore import semantic_search
+from app.vectorstore import build_index, get_collection, semantic_search
 
 app = FastAPI(
     title="JalSanchay API",
     description="CGWB-based rooftop rainwater harvesting information",
     version="1.2.0"
 )
+@app.on_event("startup")
+def initialize_vector_database():
+    collection = get_collection()
+
+    if collection.count() == 0:
+        print("Chroma database is empty. Building index...")
+        build_index()
+    else:
+        print(f"Chroma database already contains {collection.count()} chunks.")
+        
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
