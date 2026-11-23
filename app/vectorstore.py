@@ -1,35 +1,82 @@
 
 import hashlib
 import time
-from pathlib import Path
 
 import chromadb
 
 from app.chunking import load_pdf_chunks
-from app.embed import embed_texts
+from app.embed import embed_texts, embed_texts_local
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = __import__("pathlib").Path(__file__).resolve().parent.parent
 
 CHROMA_DIR = BASE_DIR / "data" / "chroma"
 
 COLLECTION_NAME = "jalsanchay_cgwb"
+LOCAL_COLLECTION_NAME = "jalsanchay_cgwb_local"
+CONFIG_COLLECTION_NAME = "jalsanchay_config"
 
 
-def get_collection():
+def get_client():
+    return chromadb.PersistentClient(path=str(CHROMA_DIR))
 
-    client = chromadb.PersistentClient(
-        path=str(CHROMA_DIR)
+
+def get_config_collection():
+    return get_client().get_or_create_collection(
+        name=CONFIG_COLLECTION_NAME,
+        metadata={"active_provider": "gemini"}
     )
 
-    collection = client.get_or_create_collection(
-        name=COLLECTION_NAME,
+
+def get_active_provider():
+    config = get_config_collection()
+    return (config.metadata or {}).get(
+        "active_provider", "gemini"
+    )
+
+
+def set_active_provider(provider):
+    config = get_config_collection()
+    config.modify(metadata={"active_provider": provider})
+    print(f"Active embedding provider: {provider}")
+
+
+def get_collection(provider=None):
+    if provider is None:
+        provider = get_active_provider()
+
+    name = (
+        LOCAL_COLLECTION_NAME
+        if provider == "local"
+        else COLLECTION_NAME
+    )
+
+    return get_client().get_or_create_collection(
+        name=name,
         metadata={"hnsw:space": "cosine"}
     )
 
-    return collection
+
+def is_quota_error(error):
+    message = str(error).lower()
+
+    return any(term in message for term in [
+        "429",
+        "resource_exhausted",
+        "quota exceeded",
+        "rate limit"
+    ])
 
 
-def build_index():
+def generate_embeddings(texts, provider):
+    if provider == "local":
+        return embed_texts_local(texts)
+
+    return embed_texts(texts)
+
+
+def build_index(provider=None):
+    if provider is None:
+        provider = get_active_provider()
 
     print("Reading CGWB PDF...")
 
@@ -38,47 +85,49 @@ def build_index():
     if not chunks:
         raise ValueError("No PDF chunks found")
 
-    collection = get_collection()
+    collection = get_collection(provider)
 
+    print("Embedding provider:", provider)
     print("Total chunks:", len(chunks))
     print("Already indexed:", collection.count())
-    print("Generating embeddings...")
 
-    # Smaller batches help reduce API quota pressure.
-    batch_size = 16
+    batch_size = 16 if provider == "gemini" else 64
 
     for start in range(0, len(chunks), batch_size):
-
         batch = chunks[start:start + batch_size]
 
-        documents = [
-            item["text"] for item in batch
-        ]
+        documents = [item["text"] for item in batch]
+        metadatas = [item["metadata"] for item in batch]
 
-        metadatas = [
-            item["metadata"] for item in batch
-        ]
+        try:
+            embeddings = generate_embeddings(
+                documents, provider
+            )
+        except Exception as error:
+            if provider == "gemini" and is_quota_error(error):
+                print(
+                    "Gemini quota exhausted. "
+                    "Switching to local embeddings..."
+                )
+                return build_index(provider="local")
 
-        # Generate embeddings for the current batch.
-        embeddings = embed_texts(documents)
+            raise
 
         ids = []
 
         for item in batch:
-
             identity = (
                 str(item["metadata"]["page"])
                 + str(item["metadata"]["chunk"])
                 + item["text"]
             )
 
-            chunk_id = hashlib.sha256(
-                identity.encode("utf-8")
-            ).hexdigest()
+            ids.append(
+                hashlib.sha256(
+                    identity.encode("utf-8")
+                ).hexdigest()
+            )
 
-            ids.append(chunk_id)
-
-        # Upsert prevents duplicate IDs when restarting.
         collection.upsert(
             ids=ids,
             documents=documents,
@@ -86,31 +135,31 @@ def build_index():
             embeddings=embeddings
         )
 
-        completed = min(
-            start + batch_size,
-            len(chunks)
-        )
+        completed = min(start + batch_size, len(chunks))
 
-        print(
-            f"Indexed {completed}/{len(chunks)} chunks"
-        )
+        print(f"Indexed {completed}/{len(chunks)} chunks")
 
-        # Wait before sending the next API request.
-        if completed < len(chunks):
+        if provider == "gemini" and completed < len(chunks):
             time.sleep(12)
 
+    if collection.count() < len(chunks):
+        raise RuntimeError("Indexing incomplete")
+
+    set_active_provider(provider)
+
     print("\nVECTOR INDEX COMPLETED")
+    print("Embedding provider:", provider)
     print("Total indexed chunks:", collection.count())
 
     return collection.count()
 
 
 def semantic_search(query, limit=5):
-
     if not query.strip():
         raise ValueError("Search query cannot be empty")
 
-    collection = get_collection()
+    provider = get_active_provider()
+    collection = get_collection(provider)
 
     total = collection.count()
 
@@ -120,23 +169,36 @@ def semantic_search(query, limit=5):
             "Run python -m app.vectorstore first."
         )
 
-    # Generate embedding for the user's search query.
-    query_embedding = embed_texts([query])[0]
+    try:
+        query_embedding = generate_embeddings(
+            [query], provider
+        )[0]
+
+    except Exception as error:
+        if provider == "gemini" and is_quota_error(error):
+            print(
+                "Gemini query quota exhausted. "
+                "Building local index..."
+            )
+
+            build_index(provider="local")
+
+            provider = "local"
+            collection = get_collection(provider)
+
+            query_embedding = embed_texts_local([query])[0]
+        else:
+            raise
 
     results = collection.query(
         query_embeddings=[query_embedding],
-        n_results=min(limit, total),
-        include=[
-            "documents",
-            "metadatas",
-            "distances"
-        ]
+        n_results=min(limit, collection.count()),
+        include=["documents", "metadatas", "distances"]
     )
 
     output = []
 
     for index in range(len(results["ids"][0])):
-
         output.append({
             "text": results["documents"][0][index],
             "metadata": results["metadatas"][0][index],
@@ -147,5 +209,4 @@ def semantic_search(query, limit=5):
 
 
 if __name__ == "__main__":
-
     build_index()
