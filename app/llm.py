@@ -157,12 +157,32 @@ def generate_answer(system_prompt, user_prompt):
 
         if provider == "gemini":
             response_text = (
-                result["candidates"][0]["content"]["parts"][0]["text"]
+            result["candidates"][0]["content"]["parts"][0]["text"]
             )
+
+            usage_data = result.get("usageMetadata", {})
+
+            usage = {
+                "prompt_tokens": usage_data.get("promptTokenCount"),
+                "completion_tokens": usage_data.get("candidatesTokenCount"),
+                "total_tokens": usage_data.get("totalTokenCount")
+            }
+
         else:
             response_text = result["choices"][0]["message"]["content"]
 
-        return extract_json(response_text)
+            usage_data = result.get("usage", {})
+
+            usage = {
+                "prompt_tokens": usage_data.get("prompt_tokens"),
+                "completion_tokens": usage_data.get("completion_tokens"),
+                "total_tokens": usage_data.get("total_tokens")
+            }
+
+        answer_data = extract_json(response_text)
+        answer_data["_usage"] = usage
+
+        return answer_data
 
     except httpx.HTTPStatusError as error:
         raise RuntimeError(

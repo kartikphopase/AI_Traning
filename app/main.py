@@ -1,6 +1,8 @@
 
 import json
+import logging
 from pathlib import Path
+from time import perf_counter
 
 from fastapi import FastAPI, HTTPException
 from langgraph.types import Command
@@ -9,9 +11,21 @@ from pydantic import BaseModel
 from app.graph import agent_graph
 from app.llm import generate_answer
 from app.rag import answer_question
+from app.response_cache import response_cache
 from app.smart_search import search_records
 from app.vectorstore import build_index, get_collection, semantic_search
 
+logger = logging.getLogger("jalsanchay.api")
+logger.setLevel(logging.INFO)
+
+if not logger.handlers:
+    log_handler = logging.StreamHandler()
+    log_handler.setFormatter(
+        logging.Formatter("%(asctime)s %(levelname)s %(message)s")
+    )
+    logger.addHandler(log_handler)
+
+logger.propagate = False
 app = FastAPI(
     title="JalSanchay API",
     description="CGWB-based rooftop rainwater harvesting information",
@@ -26,7 +40,7 @@ def initialize_vector_database():
         build_index()
     else:
         print(f"Chroma database already contains {collection.count()} chunks.")
-        
+
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -268,23 +282,45 @@ def semantic_search_endpoint(q: str, limit: int = 5):
 
 
 
+
 @app.post("/ask")
 def ask_question_endpoint(q: str, top_k: int = 5):
-
-    if not q.strip():
-        raise HTTPException(
-            status_code=400,
-            detail="Question cannot be empty"
-        )
-
-    if top_k < 1 or top_k > 20:
-        raise HTTPException(
-            status_code=400,
-            detail="top_k must be between 1 and 20"
-        )
+    start_time = perf_counter()
+    cache_hit = False
+    usage = {}
 
     try:
-        return answer_question(q, top_k)
+        if not q.strip():
+            raise HTTPException(
+                status_code=400,
+                detail="Question cannot be empty"
+            )
+
+        if len(q) > 2000:
+            raise HTTPException(
+                status_code=413,
+                detail="Question cannot exceed 2000 characters"
+            )
+
+        if top_k < 1 or top_k > 20:
+            raise HTTPException(
+                status_code=400,
+                detail="top_k must be between 1 and 20"
+            )
+
+        cache_key = (q.strip().lower(), top_k)
+        cached_result = response_cache.get(cache_key)
+
+        if cached_result is not None:
+            cache_hit = True
+            return cached_result
+
+        result = answer_question(q, top_k)
+
+        usage = result.pop("_usage", {}) or {}
+        response_cache.set(cache_key, result)
+
+        return result
 
     except ValueError as error:
         raise HTTPException(
@@ -297,6 +333,23 @@ def ask_question_endpoint(q: str, top_k: int = 5):
             status_code=503,
             detail=str(error)
         )
+
+    finally:
+        latency_ms = round(
+            (perf_counter() - start_time) * 1000,
+            2
+        )
+
+        logger.info(
+            "ask_request latency_ms=%s cache_hit=%s "
+            "prompt_tokens=%s completion_tokens=%s total_tokens=%s",
+            latency_ms,
+            cache_hit,
+            usage.get("prompt_tokens", 0) if not cache_hit else 0,
+            usage.get("completion_tokens", 0) if not cache_hit else 0,
+            usage.get("total_tokens", 0) if not cache_hit else 0
+        )
+
 
 
 
