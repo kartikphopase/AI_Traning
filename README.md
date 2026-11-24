@@ -174,9 +174,7 @@ JalSanchay is deployed using Render.
 
 ## 9. Demo Video
 
-**Demo video:** Coming soon.
-
-A demonstration will cover the knowledge assistant, source citations, rainwater calculator, and design sheet generation.
+[JalSanchay Project Demo](https://drive.google.com/drive/folders/1MDjCeWLBSN35DgUYw1y4pCsu-_e1oU_8?usp=sharing)
 
 ## 10. Future Improvements
 
